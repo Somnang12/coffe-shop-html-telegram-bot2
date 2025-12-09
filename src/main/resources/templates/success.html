@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head}">
+    <style>
+        .booking-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .booking-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .booking-header h2 {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .booking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        
+        .booking-table th {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            width: 30%;
+        }
+        
+        .booking-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+            color: #6c757d;
+        }
+        
+        .booking-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .booking-actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-print {
+            background: #4b6cb7;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-print:hover {
+            background: #3a5795;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .booking-table th, 
+            .booking-table td {
+                padding: 12px 15px;
+                display: block;
+                width: 100%;
+            }
+            
+            .booking-table th {
+                background-color: #e9ecef;
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+            
+            .booking-table td {
+                padding-top: 5px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #dee2e6;
+            }
+            
+            .booking-table tr:last-child td {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div th:replace = "~{base :: navbar}"></div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+	<div th:replace="~{base :: header(text='Booked Success')}"></div>
+    <!-- Page Header End -->
+
+
+    <!-- Success Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title">
+            </div>
+            <div class="row">
+                <div class="col-lg-3 py-0 py-lg-5">
+                </div>
+                <div class="col-lg-6 py-5 py-lg-0" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <div class="booking-container">
+                            <div class="booking-header">
+                                <h2>Booking Confirmed!</h2>
+                                <p class="text-muted">Your reservation has been successfully processed</p>
+                            </div>
+                            
+                            <!-- This will display the raw booked object -->
+                            <h4 th:text="${booked}" style="display:none;"></h4>
+                            
+                            <!-- Beautiful table to display booking details -->
+                            <table class="booking-table">
+                                <tbody>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <td th:text="${booked?.id != null ? booked.id : 'N/A (Pending)'}">N/A (Pending Assignment)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Name</th>
+                                        <td th:text="${booked?.name}">Somnang</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td th:text="${booked?.phoneNumber}">087671277</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td th:text="${booked?.email}">Somnang@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <td th:text="${booked?.date}">11/11/2025</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Time</th>
+                                        <td th:text="${booked?.time}">12:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Number of Guests are : </th>
+                                        <td th:text="${booked?.person}">1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 py-0 py-lg-5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Success End -->
+
+
+    <!-- Footer Start -->
+    <div th:replace="~{base :: footer}">
+		
+	</div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <div th:replace="~{base :: script}"></div>
+</body>
+
+</html>

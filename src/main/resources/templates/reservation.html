@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head}"></head>
+
+<body>
+    <!-- Navbar Start -->
+    <div th:replace="~{base :: navbar(reservation='active')}"></div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div th:replace="~{base :: header(text='Reservation')}"></div>
+    <!-- Page Header End -->
+fomt
+    <!-- Reservation Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="reservation position-relative overlay-top overlay-bottom">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 my-5 my-lg-0">
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h1 class="display-3 text-primary">30% OFF</h1>
+                                <h1 class="text-white">For Online Reservation</h1>
+                            </div>
+
+                            <p class="text-white">
+                                Lorem justo clita erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
+                                ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea
+                            </p>
+
+                            <ul class="list-inline text-white m-0">
+                                <li class="py-2">
+                                    <i class="fa fa-check text-primary mr-3"></i>Lorem ipsum dolor sit amet
+                                </li>
+                                <li class="py-2">
+                                    <i class="fa fa-check text-primary mr-3"></i>Lorem ipsum dolor sit amet
+                                </li>
+                                <li class="py-2">
+                                    <i class="fa fa-check text-primary mr-3"></i>Lorem ipsum dolor sit amet
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+                            <h1 class="text-white mb-4 mt-5">Book Your Table</h1>
+              <div th:replace="~{base :: form}"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reservation End -->
+
+    <!-- Footer Start -->
+    <div th:replace="~{base :: footer}"></div>
+    <!-- Footer End -->
+
+    <!-- Back to Top / Scripts -->
+    <div th:replace="~{base :: script}"></div>
+</body>
+</html>
